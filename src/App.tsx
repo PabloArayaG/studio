@@ -1,30 +1,15 @@
-import Hero from './components/Hero'
-import Clients from './components/Clients'
-import Features from './components/Features'
-import ChatExamples from './components/ChatExamples'
-import Solutions from './components/Solutions'
-import Stats from './components/Stats'
-import CaseStudies from './components/CaseStudies'
-import Calculator from './components/Calculator'
-import DataDriven from './components/DataDriven'
-import WhatsAppBSP from './components/WhatsAppBSP'
-import FinalCTA from './components/FinalCTA'
+import { Routes, Route } from 'react-router-dom'
+import Home from './routes/Home'
+import ThankYou from './routes/ThankYou'
 import './App.css'
 
 function App() {
   return (
     <div className="app">
-      <Hero />
-      <Clients />
-      <Features />
-      <ChatExamples />
-      <Solutions />
-      <Stats />
-      <CaseStudies />
-      <Calculator />
-      <DataDriven />
-      <WhatsAppBSP />
-      <FinalCTA />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/gracias" element={<ThankYou />} />
+      </Routes>
     </div>
   )
 }
