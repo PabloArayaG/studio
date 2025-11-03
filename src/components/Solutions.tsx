@@ -64,7 +64,7 @@ const Solutions = () => {
             <div key={activeSlide} className={`solution-slide slide-${slideDirection}`}>
               <div className="solution-visual">
                 {solutions[activeSlide].image ? (
-                  <img src={solutions[activeSlide].image} alt={solutions[activeSlide].title} />
+                  <img src={solutions[activeSlide].image} alt={solutions[activeSlide].title} loading="lazy" />
                 ) : (
                   <div className="placeholder-image">
                     <span>Imagen {activeSlide + 1}</span>

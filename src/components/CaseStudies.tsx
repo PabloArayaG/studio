@@ -107,7 +107,7 @@ const CaseStudies = () => {
               <div className="case-content-wrapper">
                 <div className="company-logo">
                   {cases[currentSlide].logo ? (
-                    <img src={cases[currentSlide].logo} alt={cases[currentSlide].company} className="company-logo-img" />
+                    <img src={cases[currentSlide].logo} alt={cases[currentSlide].company} className="company-logo-img" loading="lazy" />
                   ) : (
                     <>
                       <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -138,7 +138,7 @@ const CaseStudies = () => {
               <div className="case-image-container">
                 <div className="case-image-placeholder">
                   {cases[currentSlide].image ? (
-                    <img src={cases[currentSlide].image} alt={cases[currentSlide].company} />
+                    <img src={cases[currentSlide].image} alt={cases[currentSlide].company} loading="lazy" />
                   ) : (
                     <span>Imagen pendiente</span>
                   )}

@@ -22,89 +22,89 @@ const Clients = () => {
         <div className="clients-logos-wrapper">
           <div className="clients-logos">
             <div className="client-logo">
-              <img src={falabella} alt="Falabella" />
+              <img src={falabella} alt="Falabella" loading="lazy" />
             </div>
             <div className="client-logo">
-              <img src={metlife} alt="Metlife" />
+              <img src={metlife} alt="Metlife" loading="lazy" />
             </div>
             <div className="client-logo">
-              <img src={walmart} alt="Walmart" />
+              <img src={walmart} alt="Walmart" loading="lazy" />
             </div>
             <div className="client-logo">
-              <img src={sodimac} alt="Sodimac" />
+              <img src={sodimac} alt="Sodimac" loading="lazy" />
             </div>
             <div className="client-logo">
-              <img src={kaufmann} alt="Kaufmann" />
+              <img src={kaufmann} alt="Kaufmann" loading="lazy" />
             </div>
             <div className="client-logo">
-              <img src={ikea} alt="Ikea" />
+              <img src={ikea} alt="Ikea" loading="lazy" />
             </div>
             <div className="client-logo">
-              <img src={chilexpress} alt="Chilexpress" />
+              <img src={chilexpress} alt="Chilexpress" loading="lazy" />
             </div>
             <div className="client-logo">
-              <img src={paris} alt="Paris" />
+              <img src={paris} alt="Paris" loading="lazy" />
             </div>
             <div className="client-logo">
-              <img src={marathon} alt="Marathon" />
+              <img src={marathon} alt="Marathon" loading="lazy" />
             </div>
             <div className="client-logo">
-              <img src={abastible} alt="Abastible" />
+              <img src={abastible} alt="Abastible" loading="lazy" />
             </div>
             <div className="client-logo">
-              <img src={essbio} alt="Essbio" />
+              <img src={essbio} alt="Essbio" loading="lazy" />
             </div>
             <div className="client-logo">
-              <img src={esval} alt="Esval" />
+              <img src={esval} alt="Esval" loading="lazy" />
             </div>
             <div className="client-logo">
-              <img src={pcfactory} alt="PC Factory" />
+              <img src={pcfactory} alt="PC Factory" loading="lazy" />
             </div>
             <div className="client-logo">
-              <img src={bci} alt="Bci" />
+              <img src={bci} alt="Bci" loading="lazy" />
             </div>
             {/* Duplicado para loop infinito */}
             <div className="client-logo">
-              <img src={falabella} alt="Falabella" />
+              <img src={falabella} alt="Falabella" loading="lazy" />
             </div>
             <div className="client-logo">
-              <img src={metlife} alt="Metlife" />
+              <img src={metlife} alt="Metlife" loading="lazy" />
             </div>
             <div className="client-logo">
-              <img src={walmart} alt="Walmart" />
+              <img src={walmart} alt="Walmart" loading="lazy" />
             </div>
             <div className="client-logo">
-              <img src={sodimac} alt="Sodimac" />
+              <img src={sodimac} alt="Sodimac" loading="lazy" />
             </div>
             <div className="client-logo">
-              <img src={kaufmann} alt="Kaufmann" />
+              <img src={kaufmann} alt="Kaufmann" loading="lazy" />
             </div>
             <div className="client-logo">
-              <img src={ikea} alt="Ikea" />
+              <img src={ikea} alt="Ikea" loading="lazy" />
             </div>
             <div className="client-logo">
-              <img src={chilexpress} alt="Chilexpress" />
+              <img src={chilexpress} alt="Chilexpress" loading="lazy" />
             </div>
             <div className="client-logo">
-              <img src={paris} alt="Paris" />
+              <img src={paris} alt="Paris" loading="lazy" />
             </div>
             <div className="client-logo">
-              <img src={marathon} alt="Marathon" />
+              <img src={marathon} alt="Marathon" loading="lazy" />
             </div>
             <div className="client-logo">
-              <img src={abastible} alt="Abastible" />
+              <img src={abastible} alt="Abastible" loading="lazy" />
             </div>
             <div className="client-logo">
-              <img src={essbio} alt="Essbio" />
+              <img src={essbio} alt="Essbio" loading="lazy" />
             </div>
             <div className="client-logo">
-              <img src={esval} alt="Esval" />
+              <img src={esval} alt="Esval" loading="lazy" />
             </div>
             <div className="client-logo">
-              <img src={pcfactory} alt="PC Factory" />
+              <img src={pcfactory} alt="PC Factory" loading="lazy" />
             </div>
             <div className="client-logo">
-              <img src={bci} alt="Bci" />
+              <img src={bci} alt="Bci" loading="lazy" />
             </div>
           </div>
         </div>

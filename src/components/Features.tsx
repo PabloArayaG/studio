@@ -23,7 +23,7 @@ const Features = () => {
         <div className="features-grid">
           <div className="feature-card">
             <div className="feature-icon">
-              <img src={tiempoIcon} alt="Tiempo de espera" />
+              <img src={tiempoIcon} alt="Tiempo de espera" loading="lazy" />
             </div>
             <h3>Tiempo de espera</h3>
             <p>
@@ -33,7 +33,7 @@ const Features = () => {
           </div>
           <div className="feature-card">
             <div className="feature-icon">
-              <img src={costosIcon} alt="Costos operativos" />
+              <img src={costosIcon} alt="Costos operativos" loading="lazy" />
             </div>
             <h3>Costos operativos</h3>
             <p>
@@ -43,7 +43,7 @@ const Features = () => {
           </div>
           <div className="feature-card">
             <div className="feature-icon">
-              <img src={sadIcon} alt="Contact Center Saturado" />
+              <img src={sadIcon} alt="Contact Center Saturado" loading="lazy" />
             </div>
             <h3>Contact Center Saturado</h3>
             <p>

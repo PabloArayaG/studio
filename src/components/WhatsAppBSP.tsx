@@ -7,7 +7,7 @@ const WhatsAppBSP = () => {
       <div className="whatsapp-bsp-container">
         <div className="whatsapp-content">
           <div className="whatsapp-left">
-            <img src={whatsappBspLogo} alt="WhatsApp BSP" className="whatsapp-logo" />
+            <img src={whatsappBspLogo} alt="WhatsApp BSP" className="whatsapp-logo" loading="lazy" />
           </div>
           <div className="whatsapp-right">
             <h3 className="whatsapp-title">OFFICIAL BUSINESS PARTNER</h3>
