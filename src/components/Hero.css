@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: #0A0A0B;
+  background-color: #131415;
   padding: 80px 40px;
 }
 
@@ -13,12 +13,36 @@
   margin: 0 auto;
 }
 
+/* Animación de entrada */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-logo {
+  width: 180px;
+  height: auto;
+  margin-bottom: 40px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeInUp 0.8s ease-out;
+  animation-fill-mode: both;
+}
+
 .hero-badge {
   display: inline-flex;
   align-items: center;
   gap: 12px;
   background: transparent;
-  border: 1.5px solid #52CE5F;
+  border: 1px solid #52CE5F;
+  animation: fadeIn 0.6s ease-out 0.2s both;
   padding: 12px 24px;
   border-radius: 8px;
   font-size: 15px;
@@ -26,12 +50,13 @@
   color: #52CE5F;
   font-weight: 500;
   letter-spacing: 0.2px;
+  animation: fadeInUp 0.8s ease-out 0.15s;
+  animation-fill-mode: both;
 }
 
-.whatsapp-icon {
+.hero-badge img {
   width: 20px;
   height: 20px;
-  color: #52CE5F;
   flex-shrink: 0;
 }
 
@@ -40,6 +65,8 @@
   font-size: 72px !important;
   font-weight: 700;
   line-height: 1.1;
+  animation: fadeInUp 0.8s ease-out 0.3s;
+  animation-fill-mode: both;
 }
 
 .hero h1 .whatsapp-text {
@@ -55,12 +82,100 @@
   margin-bottom: 48px;
   line-height: 1.7;
   font-weight: 400;
+  animation: fadeInUp 0.6s ease-out 0.4s both;
+  animation: fadeInUp 0.8s ease-out 0.45s;
+  animation-fill-mode: both;
 }
 
 .hero-actions {
   display: flex;
   gap: 16px;
   justify-content: center;
+  margin-bottom: 64px;
+  animation: fadeInUp 0.6s ease-out 0.5s both;
+  animation-fill-mode: both;
+}
+
+.hero-video {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.8s ease-out 0.6s both;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  animation: fadeInUp 0.8s ease-out 0.75s;
+  animation-fill-mode: both;
+}
+
+/* Modo thumbnail: se adapta a la imagen */
+.hero-video.video-thumbnail-mode {
+  height: auto;
+}
+
+/* Modo video: mantiene aspect ratio 16:9 */
+.hero-video.video-playing {
+  padding-bottom: 56.25%;
+  height: 0;
+  background: #000000;
+}
+
+.hero-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  border: none;
+}
+
+.video-thumbnail {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.video-thumbnail:hover {
+  transform: scale(1.02);
+}
+
+.video-thumbnail img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.video-thumbnail:hover .play-button {
+  transform: translate(-50%, -50%) scale(1.1);
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
+}
+
+.play-button svg {
+  width: 28px;
+  height: 28px;
+  margin-left: 4px;
 }
 
 .btn-primary-large {
@@ -70,15 +185,15 @@
   border-radius: 8px;
   font-size: 16px;
   font-weight: 600;
-  transition: all 0.3s;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   border: none;
   cursor: pointer;
 }
 
 .btn-primary-large:hover {
   background: #FFC700;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(255, 213, 64, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(255, 213, 64, 0.5);
 }
 
 /* Mobile Responsive */
@@ -86,6 +201,11 @@
   .hero {
     min-height: 80vh;
     padding: 60px 20px;
+  }
+
+  .hero-logo {
+    width: 140px;
+    margin-bottom: 32px;
   }
 
   .hero h1 {
@@ -109,12 +229,44 @@
     width: 100%;
     padding: 16px 40px;
   }
+
+  .hero-actions {
+    margin-bottom: 48px;
+  }
+
+  .hero-video {
+    max-width: 100%;
+    border-radius: 12px;
+  }
+
+  .video-thumbnail img {
+    border-radius: 12px;
+  }
+
+  .hero-video iframe {
+    border-radius: 12px;
+  }
+
+  .play-button {
+    width: 68px;
+    height: 68px;
+  }
+
+  .play-button svg {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 @media (max-width: 480px) {
   .hero {
     min-height: 70vh;
     padding: 40px 16px;
+  }
+
+  .hero-logo {
+    width: 120px;
+    margin-bottom: 24px;
   }
 
   .hero h1 {
@@ -133,6 +285,34 @@
   .hero-badge {
     font-size: 12px;
     padding: 8px 14px;
+  }
+
+  .hero-actions {
+    margin-bottom: 36px;
+  }
+
+  .hero-video {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .video-thumbnail img {
+    border-radius: 8px;
+  }
+
+  .hero-video iframe {
+    border-radius: 8px;
+  }
+
+  .play-button {
+    width: 60px;
+    height: 60px;
+  }
+
+  .play-button svg {
+    width: 22px;
+    height: 22px;
   }
 }
 

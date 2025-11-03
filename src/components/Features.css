@@ -1,5 +1,5 @@
 .features {
-  padding: 120px 40px;
+  padding: 80px 40px;
   background-color: #131415;
 }
 
@@ -7,6 +7,29 @@
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
+}
+
+.problem-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid #FF4E4E;
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.problem-badge span {
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #FF4E4E;
+  letter-spacing: 0.5px;
+}
+
+.problem-badge svg {
+  flex-shrink: 0;
 }
 
 .features h2 {
@@ -42,18 +65,15 @@
 
 .feature-icon {
   margin-bottom: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.icon-circle {
-  width: 64px;
-  height: 64px;
-  background: rgba(255, 213, 64, 0.1);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 32px;
-  margin: 0 auto;
+.feature-icon img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
 }
 
 .feature-card h3 {

@@ -1,5 +1,5 @@
 .final-cta {
-  padding: 120px 40px;
+  padding: 80px 40px;
   background-color: #131415;
 }
 
@@ -14,6 +14,10 @@
   border-radius: 8px;
   padding: 80px 60px;
   text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
 }
 
 .final-cta-box h2 {

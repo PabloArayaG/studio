@@ -1,10 +1,11 @@
 import './FinalCTA.css'
+import roiBg from '../assets/img/roi/bg.png'
 
 const FinalCTA = () => {
   return (
     <section className="final-cta">
       <div className="final-cta-container">
-        <div className="final-cta-box">
+        <div className="final-cta-box" style={{ backgroundImage: `url(${roiBg})` }}>
           <h2>
             Estás a un paso de la<br />
             <span className="highlight">automatización</span>

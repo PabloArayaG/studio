@@ -1,113 +1,70 @@
 import './ChatExamples.css'
+import { useState } from 'react'
+import automatizacionImg from '../assets/img/Chatexamples/Automatización de respuesta.webp'
+import asistenteVentaImg from '../assets/img/Chatexamples/Asistentedeventa.webp'
+import calificacionLeadImg from '../assets/img/Chatexamples/Calificación de lead .webp'
+import ventaOutboundImg from '../assets/img/Chatexamples/VentaOutbound.webp'
 
 const ChatExamples = () => {
+  const [activeTab, setActiveTab] = useState(0)
+
+  const handleTabClick = (index: number) => {
+    setActiveTab(index)
+  }
+
+  const features = [
+    {
+      title: 'Automatización',
+      subtitle: 'Respuestas de Soporte',
+      description: 'Responde instantáneamente a consultas frecuentes 24/7 sin intervención humana. Reduce tiempos de espera y aumenta la satisfacción del cliente.',
+      image: automatizacionImg
+    },
+    {
+      title: 'Asistente de venta',
+      subtitle: 'Conversión inteligente',
+      description: 'Guía a tus clientes en el proceso de compra con recomendaciones personalizadas. Aumenta tus conversiones con un asistente disponible siempre.',
+      image: asistenteVentaImg
+    },
+    {
+      title: 'Calificación de lead',
+      subtitle: 'Priorización automática',
+      description: 'Identifica y prioriza automáticamente los leads más valiosos para tu negocio. Optimiza el tiempo de tu equipo de ventas.',
+      image: calificacionLeadImg
+    },
+    {
+      title: 'Venta Outbound',
+      subtitle: 'Alcance proactivo',
+      description: 'Genera conversaciones proactivas y aumenta tus oportunidades de venta. Llega a más clientes potenciales de manera automatizada.',
+      image: ventaOutboundImg
+    }
+  ]
+
   return (
     <section className="chat-examples">
       <div className="chat-examples-container">
         <h2>4 Formas de reducir costos y<br />mejorar la atención al cliente</h2>
-        <div className="chat-grid">
-          <div className="chat-card">
-            <div className="chat-header">
-              <div className="chat-status">
-                <span className="status-dot"></span>
-                <span>WhatsApp</span>
-              </div>
-            </div>
-            <div className="chat-messages">
-              <div className="message received">
-                <div className="message-bubble">Hola! Necesito ayuda con mi pedido</div>
-              </div>
-              <div className="message sent">
-                <div className="message-bubble">¡Hola! Claro, con gusto te ayudo. ¿Cuál es tu número de pedido?</div>
-              </div>
-              <div className="message received">
-                <div className="message-bubble">#12345</div>
-              </div>
-              <div className="message sent">
-                <div className="message-bubble">Perfecto, veo que tu pedido está en camino y llegará mañana</div>
-              </div>
-            </div>
-            <div className="chat-label">Automatización<br />de respuestas</div>
-          </div>
-
-          <div className="chat-card">
-            <div className="chat-header">
-              <div className="chat-status">
-                <span className="status-dot"></span>
-                <span>WhatsApp</span>
-              </div>
-            </div>
-            <div className="chat-messages">
-              <div className="message received">
-                <div className="message-bubble">¿Tienen disponible este producto?</div>
-              </div>
-              <div className="message sent">
-                <div className="message-bubble">Sí, tenemos stock disponible. ¿Te gustaría conocer más detalles?</div>
-              </div>
-              <div className="message received">
-                <div className="message-bubble">Sí, por favor</div>
-              </div>
-              <div className="message sent">
-                <div className="message-bubble">
-                  <div className="product-card">
-                    <div className="product-image">📦</div>
-                    <div className="product-info">
-                      <div className="product-name">Producto Premium</div>
-                      <div className="product-price">$99.99</div>
-                    </div>
-                  </div>
+        <div className="chat-interactive">
+          <div className="chat-tabs">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className={`tab-item ${activeTab === index ? 'active' : ''}`}
+                onClick={() => handleTabClick(index)}
+              >
+                <div className="tab-content">
+                  <h3>{feature.title}</h3>
+                  <p>{feature.subtitle}</p>
                 </div>
               </div>
-            </div>
-            <div className="chat-label">Catálogo de<br />productos</div>
+            ))}
           </div>
-
-          <div className="chat-card">
-            <div className="chat-header">
-              <div className="chat-status">
-                <span className="status-dot"></span>
-                <span>WhatsApp</span>
-              </div>
+          <div className="chat-display">
+            <div className="display-image">
+              <img 
+                src={features[activeTab].image} 
+                alt={features[activeTab].title}
+              />
             </div>
-            <div className="chat-messages">
-              <div className="message received">
-                <div className="message-bubble">¿Cuándo abren?</div>
-              </div>
-              <div className="message sent">
-                <div className="message-bubble">Estamos abiertos de lunes a viernes de 9am a 6pm</div>
-              </div>
-              <div className="message received">
-                <div className="message-bubble">¿Y los sábados?</div>
-              </div>
-              <div className="message sent">
-                <div className="message-bubble">Los sábados abrimos de 10am a 2pm</div>
-              </div>
-            </div>
-            <div className="chat-label">Call to action<br />personalizado</div>
-          </div>
-
-          <div className="chat-card">
-            <div className="chat-header">
-              <div className="chat-status">
-                <span className="status-dot"></span>
-                <span>WhatsApp</span>
-              </div>
-            </div>
-            <div className="chat-messages">
-              <div className="message received">
-                <div className="message-bubble">Quiero agendar una cita</div>
-              </div>
-              <div className="message sent">
-                <div className="message-bubble">Perfecto! ¿Qué día te viene mejor?</div>
-              </div>
-              <div className="message received">
-                <div className="message-bubble">Este viernes</div>
-              </div>
-              <div className="message sent">
-                <div className="message-bubble">✅ Cita agendada para el viernes 10am. Te enviamos confirmación</div>
-              </div>
-            </div>
-            <div className="chat-label">Acceso de<br />información</div>
           </div>
         </div>
       </div>

@@ -1,7 +1,6 @@
 .clients {
-  padding: 120px 40px;
+  padding: 80px 40px;
   background-color: #131415;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .clients-container {
@@ -11,43 +10,88 @@
 }
 
 .clients-title {
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.5);
+  font-family: 'Outfit', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #FFFFFF;
   margin-bottom: 40px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0;
+}
+
+.clients-logos-wrapper {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 80px;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Gradientes de desintegración en los bordes */
+.clients-logos-wrapper::before,
+.clients-logos-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 150px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.clients-logos-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, #131415 0%, transparent 100%);
+}
+
+.clients-logos-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, #131415 0%, transparent 100%);
+}
+
+/* Animación de scroll infinito */
+@keyframes scrollLogos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .clients-logos {
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 60px;
-  margin-bottom: 80px;
-  flex-wrap: wrap;
+  gap: 80px;
+  animation: scrollLogos 40s linear infinite;
+  width: fit-content;
 }
 
 .client-logo {
   opacity: 0.6;
   transition: opacity 0.3s;
+  flex-shrink: 0;
 }
 
 .client-logo:hover {
   opacity: 1;
 }
 
-.logo-placeholder {
-  width: 120px;
-  height: 60px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.3);
-  font-size: 12px;
-  font-weight: 600;
+.clients-logos:hover {
+  animation-play-state: paused;
+}
+
+.client-logo img {
+  height: 40px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(0.8);
+  transition: filter 0.3s;
+  display: block;
+}
+
+.client-logo:hover img {
+  filter: grayscale(0%) brightness(1);
 }
 
 .clients-stats {
@@ -66,13 +110,17 @@
   font-family: 'Outfit', sans-serif;
   font-size: 48px;
   font-weight: 700;
-  color: #FFFFFF;
+  color: #FFD540;
   margin-bottom: 12px;
 }
 
+.stat-label-highlight {
+  color: #FFFFFF;
+  font-weight: 700;
+}
 .stat-label {
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+  color: #FFFFFF;
   line-height: 1.5;
 }
 
@@ -83,7 +131,13 @@
   }
 
   .clients-logos {
-    gap: 30px;
+    gap: 60px;
+    animation: scrollLogos 30s linear infinite;
+  }
+
+  .clients-logos-wrapper::before,
+  .clients-logos-wrapper::after {
+    width: 80px;
   }
 
   .clients-stats {
@@ -101,9 +155,19 @@
     padding: 40px 16px;
   }
 
-  .logo-placeholder {
-    width: 100px;
-    height: 50px;
+  .client-logo img {
+    height: 32px;
+    max-width: 100px;
+  }
+
+  .clients-logos {
+    gap: 50px;
+    animation: scrollLogos 25s linear infinite;
+  }
+
+  .clients-logos-wrapper::before,
+  .clients-logos-wrapper::after {
+    width: 50px;
   }
 }
 

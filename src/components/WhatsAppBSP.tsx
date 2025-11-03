@@ -1,22 +1,20 @@
 import './WhatsAppBSP.css'
+import whatsappBspLogo from '../assets/img/whatsapp/whatsapp-bsp-2048x403.webp'
 
 const WhatsAppBSP = () => {
   return (
     <section className="whatsapp-bsp">
       <div className="whatsapp-bsp-container">
         <div className="whatsapp-content">
-          <div className="whatsapp-badge">
-            <div className="whatsapp-icon">
-              <span>📱</span>
-            </div>
-            <span className="whatsapp-text">WhatsApp BSP</span>
+          <div className="whatsapp-left">
+            <img src={whatsappBspLogo} alt="WhatsApp BSP" className="whatsapp-logo" />
           </div>
-          <h2>OFFICIAL BUSINESS PARTNER</h2>
-          <p className="whatsapp-description">
-            Somos partners oficiales de WhatsApp Business, lo que nos permite ofrecerte
-            la mejor experiencia y soporte para tu negocio. Accede a funciones exclusivas
-            y mayor confiabilidad en tus comunicaciones.
-          </p>
+          <div className="whatsapp-right">
+            <h3 className="whatsapp-title">OFFICIAL BUSINESS PARTNER</h3>
+            <p className="whatsapp-description">
+              Ser un WhatsApp BSP no solo permite ofrecer servicios de comunicación masiva con WhatsApp, sino que también abre oportunidades de negocio y diferenciación en el sector de la automatización y atención al cliente.
+            </p>
+          </div>
         </div>
       </div>
     </section>
