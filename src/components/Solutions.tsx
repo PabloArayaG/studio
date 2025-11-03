@@ -8,6 +8,7 @@ import analisisImg from '../assets/img/solutions/analisis-masivo-1.webp'
 
 const Solutions = () => {
   const [activeSlide, setActiveSlide] = useState(0)
+  const [slideDirection, setSlideDirection] = useState('next')
 
   const solutions = [
     {
@@ -38,10 +39,12 @@ const Solutions = () => {
   ]
 
   const handlePrev = () => {
+    setSlideDirection('prev')
     setActiveSlide((prev) => (prev === 0 ? solutions.length - 1 : prev - 1))
   }
 
   const handleNext = () => {
+    setSlideDirection('next')
     setActiveSlide((prev) => (prev === solutions.length - 1 ? 0 : prev + 1))
   }
 
@@ -58,7 +61,7 @@ const Solutions = () => {
           </button>
 
           <div className="carousel-content">
-            <div className="solution-slide">
+            <div key={activeSlide} className={`solution-slide slide-${slideDirection}`}>
               <div className="solution-visual">
                 {solutions[activeSlide].image ? (
                   <img src={solutions[activeSlide].image} alt={solutions[activeSlide].title} />
@@ -87,7 +90,10 @@ const Solutions = () => {
             <button
               key={index}
               className={`carousel-dot ${activeSlide === index ? 'active' : ''}`}
-              onClick={() => setActiveSlide(index)}
+              onClick={() => {
+                setSlideDirection(index > activeSlide ? 'next' : 'prev')
+                setActiveSlide(index)
+              }}
               aria-label={`Ir a slide ${index + 1}`}
             />
           ))}

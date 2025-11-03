@@ -11,7 +11,7 @@ const Calculator = () => {
             Calcula el ROI de implementar IA en tu servicio al cliente.<br />
             La mayoría de nuestros clientes recuperan su inversión en menos de 3 meses.
           </p>
-          <button className="btn-primary-large">Calcular mi ahorro</button>
+          <a href="https://adereso.ai/calculadora-roi-chatbots/" className="btn-primary-large">Calcular mi ahorro</a>
         </div>
       </div>
     </section>

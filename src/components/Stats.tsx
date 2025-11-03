@@ -41,7 +41,7 @@ const Stats = () => {
             </div>
           </div>
         </div>
-        <button className="btn-primary-large">Hablar con un experto →</button>
+        <a href="https://adereso.ai/contacto/" className="btn-primary-large">Hablar con un experto →</a>
       </div>
     </section>
   )

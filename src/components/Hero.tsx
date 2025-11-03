@@ -22,7 +22,7 @@ const Hero = () => {
           personalizadas, automatizando tu atención al cliente en WhatsApp
         </p>
         <div className="hero-actions">
-          <button className="btn-primary-large">Hablar con un experto →</button>
+          <a href="https://adereso.ai/contacto/" className="btn-primary-large">Hablar con un experto →</a>
         </div>
         <div className={`hero-video ${isVideoPlaying ? 'video-playing' : 'video-thumbnail-mode'}`}>
           {!isVideoPlaying ? (

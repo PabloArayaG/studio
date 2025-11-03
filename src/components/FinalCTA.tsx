@@ -14,9 +14,9 @@ const FinalCTA = () => {
             Agenda una demo y vive la experiencia de gestionar a tus clientes con<br />
             Adereso. Completa el formulario y nos comunicaremos contigo.
           </p>
-          <button className="btn-cta-final">
+          <a href="https://adereso.ai/contacto/" className="btn-cta-final">
             Hablar con un experto →
-          </button>
+          </a>
         </div>
       </div>
     </section>

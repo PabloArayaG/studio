@@ -15,6 +15,7 @@ import walmartLogo from '../assets/img/case-studies/walmart 1.png'
 
 const CaseStudies = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [slideDirection, setSlideDirection] = useState('next')
 
   const cases = [
     {
@@ -24,6 +25,7 @@ const CaseStudies = () => {
       metricLabel: 'Tickets mensuales',
       description: 'Gracias a nuestra colaboración, se ha marcado un antes y un después en el servicio al cliente de Sodimac, estableciendo un nuevo estándar de eficiencia.',
       image: sodimacImg,
+      link: 'https://adereso.ai/casos_exito_escritos/sodimac-el-gigante-del-retail-para-el-hogar/', // 👈 AQUÍ pones el link específico de Sodimac
     },
     {
       company: 'CHILQUINTA',
@@ -33,6 +35,7 @@ const CaseStudies = () => {
       metricLabel: 'Tickets mensuales',
       description: 'La automatización y chatbots han configurado y automatizado el 70% de los servicios críticos, optimizando la gestión de tickets y respuestas.',
       image: chilquintaImg,
+      link: 'https://adereso.ai/casos_exito_escritos/chilquinta-automatizacion-consultas-ia/', // 👈 AQUÍ pones el link específico de Chilquinta
     },
     {
       company: 'CENCOSUD',
@@ -41,6 +44,7 @@ const CaseStudies = () => {
       metricLabel: 'Tickets mensuales',
       description: 'Adereso ha sido fundamental en la transformación digital de Cencosud, agilizando y mejorando la gestión de atención al cliente.',
       image: cencosudImg,
+      link: 'https://adereso.ai/casos_exito_escritos/cencosud-potencia-el-servicio-al-cliente-con-adereso/', // 👈 AQUÍ pones el link específico de Cencosud
     },
     {
       company: 'mK',
@@ -49,6 +53,7 @@ const CaseStudies = () => {
       metricLabel: 'Disminución primera respuesta',
       description: 'Mejora del Service Legal Agreement y reducción drástica del tiempo de respuesta.',
       image: mkImg,
+      link: 'https://adereso.ai/casos_exito_escritos/grupo-k-atencion-omnicanal-inteligencia-artificial/', // 👈 AQUÍ pones el link específico de mK
     },
     {
       company: 'falabella.com',
@@ -57,6 +62,7 @@ const CaseStudies = () => {
       metricLabel: 'Encuestas al mes',
       description: 'La unificación de la atención al cliente de sus diversas unidades de negocio y canales potenció la eficiencia y control en Falabella.',
       image: falabellaImg,
+      link: 'https://adereso.ai/casos_exito_escritos/falabella-com-una-organizacion-mas-agil-y-flexible/', // 👈 AQUÍ pones el link específico de Falabella
     },
     {
       company: 'Walmart',
@@ -65,14 +71,17 @@ const CaseStudies = () => {
       metricLabel: 'Tickets mensuales',
       description: 'La automatización y chatbots han configurado y automatizado el 70% de los servicios críticos, optimizando la gestión de tickets y respuestas.',
       image: walmartImg,
+      link: 'https://adereso.ai/casos_exito_escritos/walmart-chile-atencion-omnicanal-ia/', // 👈 AQUÍ pones el link específico de Walmart
     }
   ]
 
   const nextSlide = () => {
+    setSlideDirection('next')
     setCurrentSlide((prev) => (prev + 1) % cases.length)
   }
 
   const prevSlide = () => {
+    setSlideDirection('prev')
     setCurrentSlide((prev) => (prev - 1 + cases.length) % cases.length)
   }
 
@@ -91,10 +100,10 @@ const CaseStudies = () => {
           <div className="cases-carousel-content">
             <div className="intro-card">
               <h3>Automatización inteligente diseñada para equipos de CX</h3>
-              <button className="btn-view-all">Ver todos los casos</button>
+              <a href="https://adereso.ai/casos-de-exitos/" className="btn-view-all">Ver todos los casos</a>
             </div>
 
-            <div className="case-card-main">
+            <div key={currentSlide} className={`case-card-main slide-${slideDirection}`}>
               <div className="case-content-wrapper">
                 <div className="company-logo">
                   {cases[currentSlide].logo ? (
@@ -122,7 +131,7 @@ const CaseStudies = () => {
                 <p className="case-description">
                   {cases[currentSlide].description}
                 </p>
-                <a href="#" className="case-link">
+                <a href={cases[currentSlide].link} className="case-link">
                   Leer Historia <span>→</span>
                 </a>
               </div>

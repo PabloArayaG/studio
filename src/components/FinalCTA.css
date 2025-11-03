@@ -37,6 +37,7 @@
 }
 
 .btn-cta-final {
+  display: inline-block;
   background: #FFD540;
   color: #131415;
   padding: 16px 40px;
@@ -46,6 +47,8 @@
   transition: all 0.3s;
   border: none;
   cursor: pointer;
+  text-decoration: none;
+  text-align: center;
 }
 
 .btn-cta-final:hover {
