@@ -6,6 +6,14 @@ import { useState } from 'react'
 const Hero = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false)
 
+  const scrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    const contactSection = document.getElementById('contacto')
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
+
   return (
     <section className="hero">
       <div className="hero-container">
@@ -22,7 +30,7 @@ const Hero = () => {
           personalizadas, automatizando tu atención al cliente en WhatsApp
         </p>
         <div className="hero-actions">
-          <a href="https://adereso.ai/contacto/" className="btn-primary-large">Hablar con un experto →</a>
+          <a href="#contacto" onClick={scrollToContact} className="btn-primary-large">Hablar con un experto →</a>
         </div>
         <div className={`hero-video ${isVideoPlaying ? 'video-playing' : 'video-thumbnail-mode'}`}>
           {!isVideoPlaying ? (

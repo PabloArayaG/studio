@@ -1,3 +1,4 @@
+import MobileNavbar from '../components/MobileNavbar'
 import Hero from '../components/Hero'
 import Clients from '../components/Clients'
 import Features from '../components/Features'
@@ -13,6 +14,7 @@ import WhatsAppBSP from '../components/WhatsAppBSP'
 export default function Home() {
   return (
     <>
+      <MobileNavbar />
       <Hero />
       <Clients />
       <Features />

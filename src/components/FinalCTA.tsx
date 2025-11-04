@@ -2,6 +2,14 @@ import './FinalCTA.css'
 import roiBg from '../assets/img/roi/bg.png'
 
 const FinalCTA = () => {
+  const scrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    const contactSection = document.getElementById('contacto')
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
+
   return (
     <section className="final-cta">
       <div className="final-cta-container">
@@ -14,7 +22,7 @@ const FinalCTA = () => {
             Agenda una demo y vive la experiencia de gestionar a tus clientes con<br />
             Adereso. Completa el formulario y nos comunicaremos contigo.
           </p>
-          <a href="https://adereso.ai/contacto/" className="btn-cta-final">
+          <a href="#contacto" onClick={scrollToContact} className="btn-cta-final">
             Hablar con un experto →
           </a>
         </div>

@@ -1,35 +1,43 @@
 import { useEffect } from 'react'
 import './Form.css'
 
+declare global {
+  interface Window {
+    hbspt: any;
+    dataLayer: any[];
+  }
+}
+
 const Form = () => {
   useEffect(() => {
-    // Cargar el script de HubSpot
+    const scriptId = 'hubspot-forms-script'
+    
+    // Evitar cargar el script múltiples veces
+    if (document.getElementById(scriptId)) {
+      return
+    }
+    
     const script = document.createElement('script')
-    script.src = '//js.hsforms.net/forms/embed/v2.js'
+    script.id = scriptId
+    script.src = 'https://js.hsforms.net/forms/embed/v2.js'
     script.charset = 'utf-8'
     script.type = 'text/javascript'
     script.async = true
     
     script.onload = () => {
-      // @ts-ignore
       if (window.hbspt) {
-        // @ts-ignore
         window.hbspt.forms.create({
           portalId: "23480943",
           formId: "6fca809e-de67-4c44-b5d7-c38bdda50427",
           region: "na1",
           target: '#hubspot-form-container',
           onFormSubmit: function($form: any) {
-            // Extraer datos del formulario
             const email = $form.find("input[name='email']").val()
             const phone = $form.find("input[name='phone']").val()
             const firstName = $form.find("input[name='firstname']").val()
             const lastName = $form.find("input[name='lastname']").val()
 
-            // Enviar al dataLayer de Google Tag Manager
-            // @ts-ignore
             window.dataLayer = window.dataLayer || []
-            // @ts-ignore
             window.dataLayer.push({
               event: 'hubspotFormSubmitted',
               userEmail: email,
@@ -43,17 +51,10 @@ const Form = () => {
     }
     
     document.body.appendChild(script)
-
-    return () => {
-      // Cleanup
-      if (document.body.contains(script)) {
-        document.body.removeChild(script)
-      }
-    }
   }, [])
 
   return (
-    <section className="form-section">
+    <section id="contacto" className="form-section">
       <div className="form-container">
         <div className="form-badge">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

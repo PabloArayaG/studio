@@ -1,6 +1,14 @@
 import './Stats.css'
 
 const Stats = () => {
+  const scrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    const contactSection = document.getElementById('contacto')
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
+
   return (
     <section className="stats">
       <div className="stats-container">
@@ -41,7 +49,7 @@ const Stats = () => {
             </div>
           </div>
         </div>
-        <a href="https://adereso.ai/contacto/" className="btn-primary-large">Hablar con un experto →</a>
+        <a href="#contacto" onClick={scrollToContact} className="btn-primary-large">Hablar con un experto →</a>
       </div>
     </section>
   )
