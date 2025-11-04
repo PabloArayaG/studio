@@ -62,7 +62,7 @@ const Form = () => {
           </svg>
           <span>CONTACTO</span>
         </div>
-        <h2>Hablemos de tu proyecto</h2>
+        <h2>Hablar con un experto</h2>
         <p className="form-subtitle">
           Completa el formulario y un experto se pondrá en contacto contigo<br />
           para ayudarte a implementar IA en tu servicio al cliente.
@@ -76,4 +76,5 @@ const Form = () => {
 }
 
 export default Form
+
 
