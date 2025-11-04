@@ -1,0 +1,79 @@
+import { useEffect } from 'react'
+import './Form.css'
+
+const Form = () => {
+  useEffect(() => {
+    // Cargar el script de HubSpot
+    const script = document.createElement('script')
+    script.src = '//js.hsforms.net/forms/embed/v2.js'
+    script.charset = 'utf-8'
+    script.type = 'text/javascript'
+    script.async = true
+    
+    script.onload = () => {
+      // @ts-ignore
+      if (window.hbspt) {
+        // @ts-ignore
+        window.hbspt.forms.create({
+          portalId: "23480943",
+          formId: "6fca809e-de67-4c44-b5d7-c38bdda50427",
+          region: "na1",
+          target: '#hubspot-form-container',
+          onFormSubmit: function($form: any) {
+            // Extraer datos del formulario
+            const email = $form.find("input[name='email']").val()
+            const phone = $form.find("input[name='phone']").val()
+            const firstName = $form.find("input[name='firstname']").val()
+            const lastName = $form.find("input[name='lastname']").val()
+
+            // Enviar al dataLayer de Google Tag Manager
+            // @ts-ignore
+            window.dataLayer = window.dataLayer || []
+            // @ts-ignore
+            window.dataLayer.push({
+              event: 'hubspotFormSubmitted',
+              userEmail: email,
+              userPhone: phone,
+              userFirstName: firstName,
+              userLastName: lastName
+            })
+          }
+        })
+      }
+    }
+    
+    document.body.appendChild(script)
+
+    return () => {
+      // Cleanup
+      if (document.body.contains(script)) {
+        document.body.removeChild(script)
+      }
+    }
+  }, [])
+
+  return (
+    <section className="form-section">
+      <div className="form-container">
+        <div className="form-badge">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18Z" stroke="#FFD540" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M13 8L9 12L7 10" stroke="#FFD540" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          <span>CONTACTO</span>
+        </div>
+        <h2>Hablemos de tu proyecto</h2>
+        <p className="form-subtitle">
+          Completa el formulario y un experto se pondrá en contacto contigo<br />
+          para ayudarte a implementar IA en tu servicio al cliente.
+        </p>
+        <div className="form-card">
+          <div id="hubspot-form-container"></div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default Form
+
