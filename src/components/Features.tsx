@@ -1,7 +1,7 @@
 import './Features.css'
 import tiempoIcon from '../assets/img/Problem/Tiempo.webp'
 import costosIcon from '../assets/img/Problem/Costos.webp'
-import sadIcon from '../assets/img/Problem/insatisfacción.webp'
+import sadIcon from '../assets/img/Problem/Insatisfacción.webp'
 
 const Features = () => {
   return (
