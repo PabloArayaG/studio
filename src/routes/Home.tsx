@@ -8,7 +8,6 @@ import CaseStudies from '../components/CaseStudies'
 import Calculator from '../components/Calculator'
 import DataDriven from '../components/DataDriven'
 import WhatsAppBSP from '../components/WhatsAppBSP'
-import FinalCTA from '../components/FinalCTA'
 
 export default function Home() {
   return (
@@ -23,7 +22,6 @@ export default function Home() {
       <Calculator />
       <DataDriven />
       <WhatsAppBSP />
-      <FinalCTA />
     </>
   )
 }

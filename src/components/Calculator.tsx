@@ -1,5 +1,5 @@
 import './Calculator.css'
-import roiBg from '../assets/img/roi/bg.png'
+import roiBg from '../assets/img/roi/bg.webp'
 
 const Calculator = () => {
   return (

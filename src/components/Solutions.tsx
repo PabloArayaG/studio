@@ -3,7 +3,7 @@ import { useState } from 'react'
 import creaBotImg from '../assets/img/solutions/crea-bot.webp'
 import respuestasImg from '../assets/img/solutions/respuestas.webp'
 import escalabilidadImg from '../assets/img/solutions/image-2.webp'
-import optimizaImg from '../assets/img/solutions/mkp.png'
+import optimizaImg from '../assets/img/solutions/mkp.webp'
 import analisisImg from '../assets/img/solutions/analisis-masivo-1.webp'
 
 const Solutions = () => {

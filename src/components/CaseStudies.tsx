@@ -6,12 +6,12 @@ import cencosudImg from '../assets/img/case-studies/cencosud-caso-exito-adereso-
 import mkImg from '../assets/img/case-studies/tienda-mk-caso-exito-adereso-r52shsy0gqkzr3bfhg6fnsiox9wcc8sowfo0x28j2g.webp'
 import falabellaImg from '../assets/img/case-studies/falabella-caso-exito-adereso-r52shs069wjpfhcsmxrt3ar8bw0z4joykb0jfs9x8o.webp'
 import walmartImg from '../assets/img/case-studies/1733082854-92b25d964b220fb21bdac095aa44139358cee9892d5aa55a79b86945f60abbc0-d_640-r52shhny6q5jvrrtbbawtvd5snfxrvjwuvu75qp954.webp'
-import sodimacLogo from '../assets/img/case-studies/Sodimac.png'
-import chilquintaLogo from '../assets/img/case-studies/Chilquinta.png'
-import cencosudLogo from '../assets/img/case-studies/cencosud-logo.png'
-import mkLogo from '../assets/img/case-studies/mk-blanco.png'
-import falabellaLogo from '../assets/img/case-studies/Falabella-04 1.png'
-import walmartLogo from '../assets/img/case-studies/walmart 1.png'
+import sodimacLogo from '../assets/img/case-studies/Sodimac.webp'
+import chilquintaLogo from '../assets/img/case-studies/Chilquinta.webp'
+import cencosudLogo from '../assets/img/case-studies/cencosud-logo.webp'
+import mkLogo from '../assets/img/case-studies/mk-blanco.webp'
+import falabellaLogo from '../assets/img/case-studies/Falabella.webp'
+import walmartLogo from '../assets/img/case-studies/walmart.webp'
 
 const CaseStudies = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
