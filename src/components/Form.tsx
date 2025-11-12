@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './Form.css'
 
 declare global {
@@ -9,7 +9,37 @@ declare global {
 }
 
 const Form = () => {
+  const formRef = useRef<HTMLElement>(null)
+  const [isVisible, setIsVisible] = useState(false)
+
   useEffect(() => {
+    // Intersection Observer para cargar el script solo cuando el formulario esté cerca
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true)
+            observer.disconnect()
+          }
+        })
+      },
+      {
+        rootMargin: '200px' // Empezar a cargar 200px antes de que sea visible
+      }
+    )
+
+    if (formRef.current) {
+      observer.observe(formRef.current)
+    }
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
+
+  useEffect(() => {
+    if (!isVisible) return
+
     const scriptId = 'hubspot-forms-script'
     
     // Evitar cargar el script múltiples veces
@@ -51,10 +81,10 @@ const Form = () => {
     }
     
     document.body.appendChild(script)
-  }, [])
+  }, [isVisible])
 
   return (
-    <section id="contacto" className="form-section">
+    <section id="contacto" className="form-section" ref={formRef}>
       <div className="form-container">
         <div className="form-badge">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
