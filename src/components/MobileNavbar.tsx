@@ -1,4 +1,5 @@
 import './MobileNavbar.css'
+import logo from '../assets/img/hero/logo-adereso-rb-2.webp'
 
 const MobileNavbar = () => {
   const scrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -13,7 +14,7 @@ const MobileNavbar = () => {
     <nav className="mobile-navbar">
       <div className="mobile-navbar-content">
         <div className="mobile-navbar-logo">
-          <img src="/logoadereso.webp" alt="Adereso" />
+          <img src={logo} alt="Adereso" />
         </div>
         <a href="#contacto" onClick={scrollToContact} className="mobile-navbar-btn">
           Hablar con un experto

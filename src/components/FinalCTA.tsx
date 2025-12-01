@@ -1,5 +1,5 @@
 import './FinalCTA.css'
-import roiBg from '../assets/img/roi/bg.png'
+import roiBg from '../assets/img/roi/bg.webp'
 
 const FinalCTA = () => {
   const scrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {

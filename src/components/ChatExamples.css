@@ -87,18 +87,13 @@
 
 .display-image {
   width: 100%;
-  max-width: 320px;
-  border-radius: 16px;
-  overflow: hidden;
-  background: #0A0A0B;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  max-width: 450px;
 }
 
 .display-image img {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 16px;
   transition: opacity 0.2s ease-in-out;
 }
 
@@ -122,7 +117,7 @@
   }
 
   .display-image {
-    max-width: 280px;
+    max-width: 380px;
   }
 
   .tab-item {
@@ -154,7 +149,7 @@
   }
 
   .display-image {
-    max-width: 260px;
+    max-width: 350px;
   }
 
   .tab-item {
@@ -181,7 +176,7 @@
   }
 
   .display-image {
-    max-width: 240px;
+    max-width: 320px;
   }
 
   .tab-item {
