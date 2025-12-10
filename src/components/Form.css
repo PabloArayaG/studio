@@ -38,8 +38,17 @@
   font-size: 1.125rem;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
-  margin-bottom: 40px;
+  margin-bottom: 12px;
   animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.form-target-text {
+  font-size: 1.125rem;
+  color: #FFD540;
+  font-weight: 600;
+  margin-bottom: 32px;
+  text-align: center;
+  animation: fadeInUp 0.6s ease-out 0.25s both;
 }
 
 .form-card {
@@ -148,7 +157,11 @@
 
   .form-subtitle {
     font-size: 1rem;
-    margin-bottom: 32px;
+  }
+
+  .form-target-text {
+    font-size: 1rem;
+    margin-bottom: 24px;
   }
 
   .form-card {
@@ -171,6 +184,11 @@
 
   .form-subtitle {
     font-size: 0.9375rem;
+  }
+
+  .form-target-text {
+    font-size: 0.9375rem;
+    margin-bottom: 20px;
   }
 
   .form-card {
