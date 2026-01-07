@@ -52,6 +52,15 @@
   letter-spacing: 0.2px;
   animation: fadeInUp 0.8s ease-out 0.15s;
   animation-fill-mode: both;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hero-badge:hover {
+  background: rgba(82, 206, 95, 0.1);
+  border-color: #52CE5F;
+  transform: translateY(-2px);
 }
 
 .hero-badge img {

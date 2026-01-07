@@ -1,0 +1,155 @@
+.whatsapp-mockup {
+  background: #131415;
+  padding: 80px 40px;
+}
+
+.whatsapp-mockup-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.whatsapp-mockup-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.mockup-left {
+  color: #FFFFFF;
+}
+
+.mockup-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid #52CE5F;
+  border-radius: 6px;
+  color: #52CE5F;
+  font-size: 13px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+}
+
+.mockup-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  color: #FFFFFF;
+}
+
+.mockup-description {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 40px;
+}
+
+.mockup-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.mockup-features li {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.feature-icon {
+  color: #52CE5F;
+  font-size: 24px;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.feature-content h4 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: #FFFFFF;
+  margin: 0 0 8px 0;
+}
+
+.feature-content p {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.mockup-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mockup-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 968px) {
+  .whatsapp-mockup-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .mockup-right {
+    justify-content: center;
+  }
+
+  .mockup-title {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .whatsapp-mockup {
+    padding: 60px 20px;
+  }
+
+  .mockup-title {
+    font-size: 32px;
+  }
+
+  .mockup-description {
+    font-size: 15px;
+  }
+
+  .feature-content h4 {
+    font-size: 16px;
+  }
+
+  .feature-content p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .whatsapp-mockup {
+    padding: 40px 16px;
+  }
+
+  .mockup-title {
+    font-size: 28px;
+  }
+
+  .mockup-badge {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}

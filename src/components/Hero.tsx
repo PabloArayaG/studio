@@ -17,10 +17,10 @@ const Hero = () => {
   return (
     <section className="hero">
       <div className="hero-container">
-        <div className="hero-badge">
+        <a href="#contacto" onClick={scrollToContact} className="hero-badge">
           <img src={whatsappIcon} alt="WhatsApp" />
           <span>Chatbots con IA para WhatsApp Business</span>
-        </div>
+        </a>
         <h1>
           Automatiza hasta 98% de tus<br />
           respuestas por <span className="whatsapp-text">WhatsApp</span>

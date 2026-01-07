@@ -13,9 +13,9 @@ const MobileNavbar = () => {
   return (
     <nav className="mobile-navbar">
       <div className="mobile-navbar-content">
-        <div className="mobile-navbar-logo">
+        <a href="https://adereso.ai" className="mobile-navbar-logo" target="_blank" rel="noopener noreferrer">
           <img src={logo} alt="Adereso" />
-        </div>
+        </a>
         <a href="#contacto" onClick={scrollToContact} className="mobile-navbar-btn">
           Hablar con un experto
         </a>

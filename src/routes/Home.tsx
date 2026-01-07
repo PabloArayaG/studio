@@ -7,8 +7,10 @@ import Solutions from '../components/Solutions'
 import Form from '../components/Form'
 import Stats from '../components/Stats'
 import CaseStudies from '../components/CaseStudies'
-import Calculator from '../components/Calculator'
+import Integrations from '../components/Integrations'
+import WhatsAppMockup from '../components/WhatsAppMockup'
 import DataDriven from '../components/DataDriven'
+import FAQ from '../components/FAQ'
 import WhatsAppBSP from '../components/WhatsAppBSP'
 import FinalCTA from '../components/FinalCTA'
 
@@ -24,8 +26,10 @@ export default function Home() {
       <Form />
       <Stats />
       <CaseStudies />
-      <Calculator />
+      <Integrations />
+      <WhatsAppMockup />
       <DataDriven />
+      <FAQ />
       <WhatsAppBSP />
       <FinalCTA />
     </>

@@ -23,6 +23,16 @@
 .mobile-navbar-logo {
   display: flex;
   align-items: center;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+  pointer-events: auto;
+  position: relative;
+  z-index: 10;
+}
+
+.mobile-navbar-logo:hover {
+  opacity: 0.8;
 }
 
 .mobile-navbar-logo img {
