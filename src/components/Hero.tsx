@@ -1,6 +1,7 @@
 import './Hero.css'
 import whatsappIcon from '../assets/img/hero/whatsapp-icon.webp'
 import videoThumbnail from '../assets/img/hero/thumbnail-1.webp'
+import img from '../assets/img/hero/whatsapp-icon.svg'
 import { useState } from 'react'
 
 const Hero = () => {
@@ -30,8 +31,9 @@ const Hero = () => {
           personalizadas, automatizando ventas y atención al cliente en WhatsApp
         </p>
         <div className="hero-actions">
-          <a href="#contacto" onClick={scrollToContact} className="btn-primary-large">Hablar con un experto →</a>   <a href="https://api.whatsapp.com/send/?phone=56934198980&text=Hola%2C+quiero+saber+sobre+los+productos+de+Adereso&type=phone_number&app_absent=0"
-    className="btn-secondary-large"> Pruébalo  </a>
+          <a href="#contacto" onClick={scrollToContact} className="btn-primary-large">Hablar con un experto →</a>
+          <a href="https://api.whatsapp.com/send/?phone=56934198980&text=Hola%2C+quiero+saber+sobre+los+productos+de+Adereso&type=phone_number&app_absent=0"
+          className="btn-secondary-large"> <img src={img} alt="WhatsApp" /> Pruébalo  </a>
         </div>
         <div className={`hero-video ${isVideoPlaying ? 'video-playing' : 'video-thumbnail-mode'}`}>
           {!isVideoPlaying ? (

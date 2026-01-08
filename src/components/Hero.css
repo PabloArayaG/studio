@@ -224,6 +224,16 @@
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
+  gap: 10px;        /* separación icono + texto */
+  line-height: 1;   /* evita que el icono quede descentrado */
+}
+
+.btn-secondary-large img {
+  width: 20px;
+  height: 20px;
+  display: block;   /* evita baseline weird */
+  flex-shrink: 0;
+  object-fit: contain;
 }
 
 .btn-secondary-large:hover {
@@ -231,6 +241,7 @@
   border-color: #ffffff;
   transform: translateY(-3px);
 }
+
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
