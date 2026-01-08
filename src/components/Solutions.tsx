@@ -2,7 +2,7 @@ import './Solutions.css'
 import { useState } from 'react'
 import creaBotImg from '../assets/img/solutions/crear-chatbots-dm-1.webp'
 import respuestasImg from '../assets/img/solutions/respuesta-en-segundos.webp'
-import escalabilidadImg from '../assets/img/solutions/derivacion.webp'
+import escalabilidadImg from '../assets/img/solutions/deriva-2.webp'
 import optimizaImg from '../assets/img/solutions/mkp.webp'
 import analisisImg from '../assets/img/solutions/Tasasx3.png'
 
@@ -32,7 +32,7 @@ const Solutions = () => {
       image: escalabilidadImg
     },
     {
-      title: 'Reportería avanzados para la mejora continua',
+      title: 'Reportería avanzada para la mejora continua',
       description: 'Optimiza continuamente tu equipo con reportes avanzados impulsados por IA, flujos automatizados y métricas de rendimiento en tiempo real.',
       image: analisisImg
     }
