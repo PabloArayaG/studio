@@ -45,10 +45,10 @@ const Features = () => {
             <div className="feature-icon">
               <img src={sadIcon} alt="Contact Center Saturado" loading="lazy" />
             </div>
-            <h3>Contact Center Saturado</h3>
+            <h3>Ventas Perdidas 24/7</h3>
             <p>
-              Aumenta tu rotación de ejecutivos y<br />
-              costos de capacitación
+            Pierdes clientes mientras<br />
+            tu equipo duerme
             </p>
           </div>
         </div>

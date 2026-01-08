@@ -98,8 +98,8 @@ const Form = () => {
           Completa el formulario y un experto se pondrá en contacto contigo<br />
           para ayudarte a implementar IA en tu servicio al cliente.
         </p>
-        <p className="form-target-text">Solo para marcas con más de 5 ejecutivos</p>
         <div className="form-card">
+        <p className="form-target-text">Solo para marcas con más de 5 ejecutivos</p>
           <div id="hubspot-form-container"></div>
         </div>
       </div>

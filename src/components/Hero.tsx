@@ -27,10 +27,11 @@ const Hero = () => {
         </h1>
         <p className="hero-subtitle">
           Chatbots impulsados por IA que entregan respuestas instantáneas y<br />
-          personalizadas, automatizando tu atención al cliente en WhatsApp
+          personalizadas, automatizando ventas y atención al cliente en WhatsApp
         </p>
         <div className="hero-actions">
-          <a href="#contacto" onClick={scrollToContact} className="btn-primary-large">Hablar con un experto →</a>
+          <a href="#contacto" onClick={scrollToContact} className="btn-primary-large">Hablar con un experto →</a>   <a href="https://api.whatsapp.com/send/?phone=56934198980&text=Hola%2C+quiero+saber+sobre+los+productos+de+Adereso&type=phone_number&app_absent=0"
+    className="btn-secondary-large"> Pruébalo  </a>
         </div>
         <div className={`hero-video ${isVideoPlaying ? 'video-playing' : 'video-thumbnail-mode'}`}>
           {!isVideoPlaying ? (

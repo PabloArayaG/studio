@@ -1,10 +1,10 @@
 import './Solutions.css'
 import { useState } from 'react'
-import creaBotImg from '../assets/img/solutions/crea-bot.webp'
-import respuestasImg from '../assets/img/solutions/respuestas.webp'
-import escalabilidadImg from '../assets/img/solutions/image-2.webp'
+import creaBotImg from '../assets/img/solutions/crear-chatbots-dm-1.webp'
+import respuestasImg from '../assets/img/solutions/respuesta-en-segundos.webp'
+import escalabilidadImg from '../assets/img/solutions/derivacion.webp'
 import optimizaImg from '../assets/img/solutions/mkp.webp'
-import analisisImg from '../assets/img/solutions/analisis-masivo-1.webp'
+import analisisImg from '../assets/img/solutions/Tasasx3.png'
 
 const Solutions = () => {
   const [activeSlide, setActiveSlide] = useState(0)
@@ -17,8 +17,8 @@ const Solutions = () => {
       image: creaBotImg
     },
     {
-      title: 'Respuestas instanáneas 24/7',
-      description: 'Resuelve consultas con la naturalidad de un experto gracias a nuestra IA generativa.Ofrece respuestas precisas y conversaciones fluidas que harán que tus clientes se sientan realmente atendidos.',
+      title: 'Respuestas instantáneas 24/7',
+      description: 'Resuelve consultas con la naturalidad de un experto gracias a nuestra IA generativa. Ofrece respuestas precisas y conversaciones fluidas que harán que tus clientes se sientan realmente atendidos.',
       image: respuestasImg
     },
     {
@@ -27,13 +27,13 @@ const Solutions = () => {
       image: optimizaImg
     },
     {
-      title: 'Optimiza tus Chatbots por tu cuenta, sin código',
-      description: 'Analiza el desempeño de tus chatbots y descubre nuevas oportunidades de automatización. Toma decisiones basadas en datos para mejorar constantemente la experiencia de tus clientes.',
+      title: 'Derivación Inteligente',
+      description: 'Tu agente IA detecta la intención del cliente y puede derivar al departamento adecuado en el mismo chat con todo el contexto disponible',
       image: escalabilidadImg
     },
     {
-      title: 'Análisis masivo del comportamiento de clientes',
-      description: 'Analiza miles de conversaciones con clientes con Inteligencia Artificial para identificar patrones, descubrir oportunidades y mejorar continuamente tus productos y procesos.',
+      title: 'Reportería avanzados para la mejora continua',
+      description: 'Optimiza continuamente tu equipo con reportes avanzados impulsados por IA, flujos automatizados y métricas de rendimiento en tiempo real.',
       image: analisisImg
     }
   ]
@@ -51,7 +51,7 @@ const Solutions = () => {
   return (
     <section className="solutions">
       <div className="solutions-container">
-        <h2>Soluciones con Adereso AI</h2>
+        <h2>Automatiza, vende más y ofrece atención 24/7 <br></br>sin ampliar tus equipos.</h2>
         
         <div className="carousel-wrapper">
           <button className="carousel-arrow left" onClick={handlePrev} aria-label="Anterior">

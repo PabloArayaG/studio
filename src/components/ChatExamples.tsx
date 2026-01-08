@@ -35,7 +35,7 @@ const ChatExamples = () => {
   return (
     <section className="chat-examples">
       <div className="chat-examples-container">
-        <h2>3 Formas de reducir costos y<br />mejorar la atención al cliente</h2>
+        <h2>Automatiza ventas y atención en el canal favorito de tus clientes</h2>
         <div className="chat-interactive">
           <div className="chat-tabs">
             {features.map((feature, index) => (
