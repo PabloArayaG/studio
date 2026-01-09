@@ -9,6 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@statsig/js-client": "^3.31.1",
+    "@statsig/session-replay": "^3.31.1",
+    "@statsig/web-analytics": "^3.31.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.30.1"
