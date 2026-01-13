@@ -36,12 +36,6 @@ const Hero = () => {
       }
     };
 
-    const params = new URLSearchParams(window.location.search);
-const forced = params.get("mt"); // ?mt=demo o ?mt=video
-if (import.meta.env.DEV && (forced === "demo" || forced === "video")) {
-  setMediaType(forced as MediaType);
-  return;
-}
     // 1) lectura inmediata
     readExperiment();
 
