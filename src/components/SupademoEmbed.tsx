@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import { statsigClient } from "../lib/statsig";
 
 const EXPERIMENT_NAME = "landing_media_video_vs_demo";
-
 type Props = { title?: string };
 
 export default function SupademoEmbed({ title = "Demo Studio + Desk" }: Props) {
@@ -33,13 +32,16 @@ export default function SupademoEmbed({ title = "Demo Studio + Desk" }: Props) {
       onFocusCapture={onFirstInteraction}
     >
       <iframe
-        src="https://app.supademo.com/embed/cmjrnscgs005az80jybweuo8a?embed_v=2&utm_source=embed"
-        loading="lazy"
-        title={title}
-        allow="clipboard-write"
-        frameBorder={0}
-        allowFullScreen
-        style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+      src="https://app.supademo.com/embed/cmjrnscgs005az80jybweuo8a?embed_v=2&utm_source=embed"
+      loading="lazy"
+      title={title}
+      allow="clipboard-write"
+      allowFullScreen
+      frameBorder={0}
+      style={{ width: "100%", height: "100%", border: "none" }}
+      onMouseDown={onFirstInteraction}
+      onTouchStart={onFirstInteraction}
+      onFocusCapture={onFirstInteraction}
       />
     </div>
   );
