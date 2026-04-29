@@ -1,0 +1,11 @@
+export { MobileStickyHeader } from './MobileStickyHeader';
+export { HeroSection } from './HeroSection';
+export { HeroFormSection } from './HeroFormSection';
+export { ProblemSection } from './ProblemSection';
+export { SolucionSection } from './SolucionSection';
+export { ProcesoSection } from './ProcesoSection';
+export { ResultadosSection } from './ResultadosSection';
+export { IntegracionesSection } from './IntegracionesSection';
+export { AnaliticaSection } from './AnaliticaSection';
+export { FaqSection } from './FaqSection';
+export { CtaFinalSection } from './CtaFinalSection';
