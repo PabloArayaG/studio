@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useId, useRef, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import {
   IconArrowLeft,
   IconArrowRight,
@@ -134,8 +133,10 @@ function CustomDropdown({
   )
 }
 
+const THANK_YOU_URL =
+  'https://adereso.ai/thank-you-page/?utm_source=Website&utm_medium=Contacto&utm_campaign=Formulario'
+
 export function ContactForm() {
-  const navigate = useNavigate()
   const [step, setStep] = useState(1)
   const [animKey, setAnimKey] = useState(0)
   const [heroOn, setHeroOn] = useState(false)
@@ -246,10 +247,7 @@ export function ContactForm() {
         userLastName: lastName,
       })
 
-      navigate(
-        '/gracias?utm_source=Website&utm_medium=Contacto&utm_campaign=Formulario',
-        { replace: true },
-      )
+      window.location.replace(THANK_YOU_URL)
     } catch {
       setError('No se pudo enviar. Revisa tu conexión e intenta de nuevo.')
     } finally {
