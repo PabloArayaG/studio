@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import type { IncomingMessage } from 'node:http'
-import { handleContactSubmit } from './src/lib/hubspot/handle-contact-submit'
+import { handleContactSubmit } from './api/lib/contact-form.js'
 
 function readBody(req: IncomingMessage): Promise<unknown> {
   return new Promise((resolve, reject) => {
