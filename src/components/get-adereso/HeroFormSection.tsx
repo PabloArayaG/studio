@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { ContactForm } from './ContactForm';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 10 },
@@ -11,45 +11,6 @@ const fadeUp = {
 };
 
 export const HeroFormSection = () => {
-  const formRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const createForm = () => {
-      if ((window as any).hbspt && !document.querySelector('#hero-hubspot-form iframe')) {
-        (window as any).hbspt.forms.create({
-          portalId: '23480943',
-          formId: '6fca809e-de67-4c44-b5d7-c38bdda50427',
-          region: 'na1',
-          target: '#hero-hubspot-form',
-        });
-        return true;
-      }
-      return false;
-    };
-
-    if (createForm()) return;
-
-    const existing = document.querySelector('script[src="//js.hsforms.net/forms/embed/v2.js"]');
-    if (existing) {
-      const interval = setInterval(() => {
-        if (createForm()) clearInterval(interval);
-      }, 200);
-      return () => clearInterval(interval);
-    }
-
-    const script = document.createElement('script');
-    script.src = '//js.hsforms.net/forms/embed/v2.js';
-    script.charset = 'utf-8';
-    script.type = 'text/javascript';
-    script.async = true;
-    script.onload = () => createForm();
-    document.head.appendChild(script);
-
-    return () => {
-      if (document.head.contains(script)) document.head.removeChild(script);
-    };
-  }, []);
-
   const benefits = [
     'Implementación sin costo',
     '40% de descuento en plan anual',
@@ -61,7 +22,6 @@ export const HeroFormSection = () => {
       <div className="max-w-[1200px] mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-center">
 
-          {/* Left – Copy */}
           <motion.div
             className="text-center md:text-left"
             variants={fadeUp}
@@ -110,19 +70,14 @@ export const HeroFormSection = () => {
             </ul>
           </motion.div>
 
-          {/* Right – Form */}
           <motion.div
-            ref={formRef}
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-50px' }}
             custom={0.15}
           >
-            <div
-              id="hero-hubspot-form"
-              className="bg-[#131415] rounded-[16px] p-6 md:p-8 border border-white/10"
-            />
+            <ContactForm />
           </motion.div>
 
         </div>
