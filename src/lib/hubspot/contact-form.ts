@@ -34,8 +34,11 @@ export const TOOL_OPTIONS = [
   'Dentalink',
   'Reservo',
   'AgendaPro',
-  'Otros',
+  'Otros', // UI label; HubSpot internal value: Otro
 ] as const
+
+/** Valor interno HubSpot para la opción "Otros" */
+export const HUBSPOT_TOOL_OTRO_VALUE = 'Otro'
 
 export const HUBSPOT_CONTACT_PORTAL_ID = '23480943'
 export const HUBSPOT_CONTACT_FORM_ID = '6fca809e-de67-4c44-b5d7-c38bdda50427'

@@ -69,6 +69,10 @@ export function validateContactFormData(data) {
   )
 }
 
+function toHubspotToolValue(tool) {
+  return tool === 'Otros' ? 'Otro' : tool
+}
+
 function buildHubspotContactFields(data) {
   const fields = [
     { name: HUBSPOT_FIELD.firstname, value: data.nombre.trim() },
@@ -83,7 +87,7 @@ function buildHubspotContactFields(data) {
   if (data.herramientas.length > 0) {
     fields.push({
       name: HUBSPOT_FIELD.plataformas,
-      value: data.herramientas.join(';'),
+      value: data.herramientas.map(toHubspotToolValue).join(';'),
     })
   }
 
