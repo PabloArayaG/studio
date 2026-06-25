@@ -1,6 +1,5 @@
 import "./Hero.css";
 import whatsappIcon from "../assets/img/hero/whatsapp-icon.webp";
-import img from "../assets/img/hero/whatsapp-icon.svg";
 import type { MouseEvent } from "react";
 import SupademoEmbed from "./SupademoEmbed";
 
@@ -34,13 +33,6 @@ const Hero = () => {
         <div className="hero-actions">
           <a href="#contacto" onClick={scrollToContact} className="btn-primary-large">
             Hablar con un experto →
-          </a>
-
-          <a
-            href="https://api.whatsapp.com/send/?phone=56934198980&text=Hola%2C+quiero+saber+sobre+los+productos+de+Adereso&type=phone_number&app_absent=0"
-            className="btn-secondary-large"
-          >
-            <img src={img} alt="WhatsApp" /> Pruébalo
           </a>
         </div>
 

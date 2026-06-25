@@ -127,17 +127,6 @@ export const HeroSection = () => {
               <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
             </svg>
           </a>
-
-          <a
-            href="https://api.whatsapp.com/send/?phone=56934198980&text=Hola%2C+quiero+saber+sobre+los+productos+de+Adereso&type=phone_number&app_absent=0"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-white/10 text-white text-[16px] font-medium rounded-full transition-all duration-200 bg-[#131415] hover:bg-[#1a1b1c] w-full sm:w-auto"
-            style={{ fontFamily: "'Outfit', sans-serif" }}
-          >
-            <WhatsAppIcon className="w-4 h-4" />
-            Pruébalo
-          </a>
         </motion.div>
 
         {/* Logos clientes - marquee */}
