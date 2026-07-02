@@ -1,4 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
+import {
+  CORPORATE_EMAIL_ERROR_MESSAGE,
+  isCorporateEmail,
+} from '../lib/corporate-email'
 import './Form.css'
 
 declare global {
@@ -66,6 +70,22 @@ const Form = () => {
             const phone = $form.find("input[name='phone']").val()
             const firstName = $form.find("input[name='firstname']").val()
             const lastName = $form.find("input[name='lastname']").val()
+
+            if (!isCorporateEmail(String(email ?? ''))) {
+              const emailInput = $form.find("input[name='email']")[0] as
+                | HTMLInputElement
+                | undefined
+              if (emailInput) {
+                emailInput.setCustomValidity(CORPORATE_EMAIL_ERROR_MESSAGE)
+                emailInput.reportValidity()
+              }
+              return false
+            }
+
+            const emailInput = $form.find("input[name='email']")[0] as
+              | HTMLInputElement
+              | undefined
+            emailInput?.setCustomValidity('')
 
             window.dataLayer = window.dataLayer || []
             window.dataLayer.push({

@@ -9,9 +9,13 @@ import {
   CONVERSATION_OPTIONS,
   EXECUTIVE_OPTIONS,
   TOOL_OPTIONS,
-  isValidEmail,
   type ContactFormData,
 } from '../../lib/hubspot/contact-form'
+import {
+  CORPORATE_EMAIL_ERROR_MESSAGE,
+  isCorporateEmail,
+  isValidEmailFormat,
+} from '../../lib/corporate-email'
 
 const TOTAL_STEPS = 3
 const font = 'font-[family-name:var(--font-outfit)]'
@@ -166,7 +170,7 @@ export function ContactForm() {
     if (step === 1) {
       return (
         form.nombre.trim().length > 1 &&
-        isValidEmail(form.correo) &&
+        isCorporateEmail(form.correo) &&
         form.telefono.trim().length > 5
       )
     }
@@ -361,6 +365,16 @@ export function ContactForm() {
                   onChange={(e) => setForm((f) => ({ ...f, correo: e.target.value }))}
                   {...inputFocusHandlers}
                 />
+                {form.correo.trim() &&
+                  isValidEmailFormat(form.correo) &&
+                  !isCorporateEmail(form.correo) && (
+                    <p
+                      className="text-xs mt-1.5"
+                      style={{ color: '#FF4040', fontFamily: "'Work Sans', sans-serif" }}
+                    >
+                      {CORPORATE_EMAIL_ERROR_MESSAGE}
+                    </p>
+                  )}
               </div>
               <div>
                 <label className={`block text-sm text-white/80 mb-1.5 ${font}`}>

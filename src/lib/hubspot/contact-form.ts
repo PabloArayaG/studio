@@ -1,3 +1,5 @@
+import { isCorporateEmail } from '../corporate-email'
+
 export type ContactFormData = {
   nombre: string
   telefono: string
@@ -54,9 +56,7 @@ export const HUBSPOT_FIELD = {
   confirmo: 'confirmo_asistencia',
 } as const
 
-export function isValidEmail(email: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())
-}
+export { isCorporateEmail, isValidEmailFormat as isValidEmail } from '../corporate-email'
 
 export function validateContactFormData(data: unknown): data is ContactFormData {
   if (!data || typeof data !== 'object') return false
@@ -65,7 +65,7 @@ export function validateContactFormData(data: unknown): data is ContactFormData 
     typeof d.nombre === 'string' &&
     d.nombre.trim().length > 1 &&
     typeof d.correo === 'string' &&
-    isValidEmail(d.correo) &&
+    isCorporateEmail(d.correo) &&
     typeof d.telefono === 'string' &&
     d.telefono.trim().length > 5 &&
     typeof d.conversaciones === 'string' &&

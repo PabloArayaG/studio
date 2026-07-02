@@ -41,9 +41,7 @@ const HUBSPOT_FIELD = {
   confirmo: 'confirmo_asistencia',
 }
 
-function isValidEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).trim())
-}
+import { isCorporateEmail } from './corporate-email.js'
 
 export function validateContactFormData(data) {
   if (!data || typeof data !== 'object') return false
@@ -52,7 +50,7 @@ export function validateContactFormData(data) {
     typeof d.nombre === 'string' &&
     d.nombre.trim().length > 1 &&
     typeof d.correo === 'string' &&
-    isValidEmail(d.correo) &&
+    isCorporateEmail(d.correo) &&
     typeof d.telefono === 'string' &&
     d.telefono.trim().length > 5 &&
     typeof d.conversaciones === 'string' &&
