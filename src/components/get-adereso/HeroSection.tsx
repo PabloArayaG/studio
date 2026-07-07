@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import backgroundImg from '../../assets/Background.png';
 import mbpImg from '../../assets/MBP-demo.png';
+import SupademoEmbed from '../SupademoEmbed';
 
 const WhatsAppIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -25,6 +26,8 @@ export const HeroSection = () => {
           <img
             src={backgroundImg}
             alt=""
+            decoding="async"
+            fetchPriority="low"
             className="absolute inset-0 w-full h-full object-cover object-top"
           />
         </div>
@@ -105,6 +108,8 @@ export const HeroSection = () => {
           <img
             src={mbpImg}
             alt="Meta Business Partner & Shopify Partners"
+            decoding="async"
+            fetchPriority="low"
             className="h-auto max-w-[220px] md:max-w-[320px] w-full opacity-80"
           />
         </motion.div>
@@ -155,6 +160,9 @@ export const HeroSection = () => {
                     key={`${set}-${logo.alt}`}
                     src={logo.src}
                     alt={logo.alt}
+                    loading="lazy"
+                    decoding="async"
+                    fetchPriority="low"
                     className={`${logo.h} w-auto opacity-60 shrink-0`}
                   />
                 ))}
@@ -163,30 +171,19 @@ export const HeroSection = () => {
           </div>
         </motion.div>
 
-        {/* Demo */}
-        <motion.div
-          className="relative md:mx-auto md:max-w-[1400px]"
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          custom={0.5}
-        >
-          <div
-            className="relative w-[calc(100%+32px)] -ml-4 md:ml-0 md:w-full md:rounded-[10px] overflow-hidden md:border md:border-white/5 aspect-[4/3] md:h-auto md:aspect-[1.98]"
-          >
-            <iframe
-              src="https://app.supademo.com/embed/cmjrnscgs005az80jybweuo8a?embed_v=2"
-              loading="lazy"
-              title="Demo Studio + Desk"
-              allow="clipboard-write"
-              className="absolute inset-0 w-full h-full"
-              style={{ border: 0 }}
-            />
-          </div>
+        {/* Demo — sin animación de entrada para montar el iframe cuanto antes */}
+        <div className="relative md:mx-auto md:max-w-[1400px]">
+          <SupademoEmbed
+            eager
+            className="w-[calc(100%+32px)] -ml-4 md:ml-0 md:w-full md:rounded-[10px] md:border md:border-white/5 aspect-[4/3] md:aspect-[1.98]"
+          />
           <div className="flex items-center justify-center md:justify-start gap-2 mt-3 md:mt-4 px-4 md:px-0">
             <img
               src="https://adereso.ai/wp-content/uploads/2026/04/d0wj_0jfk_210210-convertido.png"
               alt=""
+              loading="lazy"
+              decoding="async"
+              fetchPriority="low"
               className="w-6 h-6 object-contain flex-shrink-0"
             />
             <span
@@ -196,7 +193,7 @@ export const HeroSection = () => {
               ¡Prueba nuestra demo interactiva!
             </span>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

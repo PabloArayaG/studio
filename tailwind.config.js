@@ -8,11 +8,16 @@ export default {
     extend: {
       animation: {
         marquee: "marquee 25s linear infinite",
+        "supademo-shimmer": "supademo-shimmer 1.6s ease-in-out infinite",
       },
       keyframes: {
         marquee: {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
+        },
+        "supademo-shimmer": {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" },
         },
       },
     },
