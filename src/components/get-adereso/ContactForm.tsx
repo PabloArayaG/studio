@@ -7,9 +7,10 @@ import {
 } from '@tabler/icons-react'
 import {
   CONVERSATION_OPTIONS,
-  EXECUTIVE_OPTIONS,
-  TOOL_OPTIONS,
+  INDUSTRY_OPTIONS,
+  INDUSTRY_OTHER_LABEL,
   type ContactFormData,
+  shouldRedirectToCalendar,
 } from '../../lib/hubspot/contact-form'
 import {
   CORPORATE_EMAIL_ERROR_MESSAGE,
@@ -17,7 +18,7 @@ import {
   isValidEmailFormat,
 } from '../../lib/corporate-email'
 
-const TOTAL_STEPS = 3
+const TOTAL_STEPS = 2
 const font = 'font-[family-name:var(--font-outfit)]'
 const FORM_STEP_MIN_H = 'min-h-[280px]'
 const CARD_SHELL =
@@ -40,10 +41,13 @@ const EMPTY_FORM: ContactFormData = {
   telefono: '',
   correo: '',
   conversaciones: '',
-  ejecutivos: '',
+  industria: '',
+  otraIndustria: '',
   objetivos: '',
-  herramientas: [],
 }
+
+const THANK_YOU_URL =
+  'https://adereso.ai/thank-you-page/?utm_source=Website&utm_medium=Contacto&utm_campaign=Formulario'
 
 type CustomDropdownProps = {
   label: string
@@ -137,9 +141,6 @@ function CustomDropdown({
   )
 }
 
-const THANK_YOU_URL =
-  'https://adereso.ai/thank-you-page/?utm_source=Website&utm_medium=Contacto&utm_campaign=Formulario'
-
 export function ContactForm() {
   const [step, setStep] = useState(1)
   const [animKey, setAnimKey] = useState(0)
@@ -147,12 +148,12 @@ export function ContactForm() {
   const [form, setForm] = useState<ContactFormData>(EMPTY_FORM)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
-  const [openDropdown, setOpenDropdown] = useState<'conversaciones' | 'ejecutivos' | null>(
+  const [openDropdown, setOpenDropdown] = useState<'conversaciones' | 'industria' | null>(
     null,
   )
 
   const nombreRef = useRef<HTMLInputElement>(null)
-  const herramientasRef = useRef<HTMLDivElement>(null)
+  const objetivosRef = useRef<HTMLTextAreaElement>(null)
 
   useEffect(() => {
     const t = setTimeout(() => setHeroOn(true), 80)
@@ -162,9 +163,20 @@ export function ContactForm() {
   const focusFirstField = useCallback((currentStep: number) => {
     setTimeout(() => {
       if (currentStep === 1) nombreRef.current?.focus()
-      else if (currentStep === 3) herramientasRef.current?.focus()
     }, 360)
   }, [])
+
+  const isStep2Valid = useCallback(() => {
+    const industryValid =
+      form.industria !== '' &&
+      (form.industria !== INDUSTRY_OTHER_LABEL || form.otraIndustria.trim().length > 2)
+
+    return (
+      form.conversaciones !== '' &&
+      industryValid &&
+      form.objetivos.trim().length > 2
+    )
+  }, [form])
 
   const canAdvance = useCallback(() => {
     if (step === 1) {
@@ -174,15 +186,8 @@ export function ContactForm() {
         form.telefono.trim().length > 5
       )
     }
-    if (step === 2) {
-      return (
-        form.conversaciones !== '' &&
-        form.ejecutivos !== '' &&
-        form.objetivos.trim().length > 2
-      )
-    }
-    return form.herramientas.length >= 1
-  }, [step, form])
+    return isStep2Valid()
+  }, [step, form, isStep2Valid])
 
   const goNext = useCallback(() => {
     if (!canAdvance()) return
@@ -202,15 +207,6 @@ export function ContactForm() {
       setOpenDropdown(null)
       focusFirstField(prev)
     }
-  }
-
-  const toggleTool = (tool: string) => {
-    setForm((f) => ({
-      ...f,
-      herramientas: f.herramientas.includes(tool)
-        ? f.herramientas.filter((t) => t !== tool)
-        : [...f.herramientas, tool],
-    }))
   }
 
   const handleSubmit = async () => {
@@ -252,7 +248,15 @@ export function ContactForm() {
         userLastName: lastName,
       })
 
-      window.location.replace(THANK_YOU_URL)
+      if (shouldRedirectToCalendar(form)) {
+        const params = new URLSearchParams()
+        if (firstName) params.set('firstname', firstName)
+        if (lastName) params.set('lastname', lastName)
+        params.set('email', form.correo.trim())
+        window.location.replace(`/agendar?${params}`)
+      } else {
+        window.location.replace(THANK_YOU_URL)
+      }
     } catch {
       setError('No se pudo enviar. Revisa tu conexión e intenta de nuevo.')
     } finally {
@@ -285,7 +289,6 @@ export function ContactForm() {
       style={CARD_STYLE}
       onKeyDown={handleKeyDown}
     >
-      {/* Header */}
       <div className="mb-5">
         <h3
           className={`text-lg md:text-xl font-semibold text-white mb-1 ${font}`}
@@ -321,9 +324,8 @@ export function ContactForm() {
         </div>
       </div>
 
-      {/* Steps */}
       <div className={`relative z-20 ${FORM_STEP_MIN_H}`}>
-        <div key={animKey} className={`step-enter flex flex-col gap-3`}>
+        <div key={animKey} className="step-enter flex flex-col gap-3">
           {step === 1 && (
             <>
               <p
@@ -410,21 +412,46 @@ export function ContactForm() {
                 onClose={() => setOpenDropdown(null)}
               />
               <CustomDropdown
-                label="¿Cuántos ejecutivos de atención hay en tu empresa?"
-                value={form.ejecutivos}
-                options={EXECUTIVE_OPTIONS}
-                onChange={(v) => setForm((f) => ({ ...f, ejecutivos: v }))}
-                isOpen={openDropdown === 'ejecutivos'}
+                label="Industria"
+                value={form.industria}
+                options={INDUSTRY_OPTIONS}
+                onChange={(v) =>
+                  setForm((f) => ({
+                    ...f,
+                    industria: v,
+                    otraIndustria: v === INDUSTRY_OTHER_LABEL ? f.otraIndustria : '',
+                  }))
+                }
+                isOpen={openDropdown === 'industria'}
                 onToggle={() =>
-                  setOpenDropdown((d) => (d === 'ejecutivos' ? null : 'ejecutivos'))
+                  setOpenDropdown((d) => (d === 'industria' ? null : 'industria'))
                 }
                 onClose={() => setOpenDropdown(null)}
               />
+              {form.industria === INDUSTRY_OTHER_LABEL && (
+                <div>
+                  <label className={`block text-sm text-white/80 mb-1.5 ${font}`}>
+                    ¿Cuál es tu industria?
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Ej: Logística, Finanzas, Construcción…"
+                    className={INPUT_BASE}
+                    style={INPUT_STYLE}
+                    value={form.otraIndustria}
+                    onChange={(e) =>
+                      setForm((f) => ({ ...f, otraIndustria: e.target.value }))
+                    }
+                    {...inputFocusHandlers}
+                  />
+                </div>
+              )}
               <div>
                 <label className={`block text-sm text-white/80 mb-1.5 ${font}`}>
                   ¿Qué buscas lograr con Adereso?
                 </label>
                 <textarea
+                  ref={objetivosRef}
                   rows={2}
                   placeholder="Ej: Automatizar atención y ventas por WhatsApp…"
                   className={`${INPUT_BASE} resize-none`}
@@ -436,69 +463,15 @@ export function ContactForm() {
               </div>
             </>
           )}
-
-          {step === 3 && (
-            <>
-              <div ref={herramientasRef} tabIndex={-1} className="outline-none">
-                <p className={`text-sm text-white/80 mb-1 ${font}`}>
-                  ¿Qué plataformas usas actualmente?
-                </p>
-                <p
-                  className="text-xs mb-3"
-                  style={{
-                    color: 'rgba(255,255,255,0.45)',
-                    fontFamily: "'Work Sans', sans-serif",
-                  }}
-                >
-                  Selecciona las herramientas de tu stack. Puedes elegir varias.
-                </p>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                  {TOOL_OPTIONS.map((tool) => {
-                    const active = form.herramientas.includes(tool)
-                    return (
-                      <button
-                        key={tool}
-                        type="button"
-                        onClick={() => toggleTool(tool)}
-                        className="relative min-w-0 break-words text-[11px] sm:text-sm px-3 py-2.5 rounded-[10px] transition-all text-left"
-                        style={{
-                          fontFamily: "'Work Sans', sans-serif",
-                          border: active
-                            ? '1px solid rgba(255,213,64,0.5)'
-                            : '1px solid rgba(255,255,255,0.12)',
-                          backgroundColor: active
-                            ? 'rgba(255,213,64,0.1)'
-                            : 'rgba(255,255,255,0.06)',
-                          color: active ? '#FFD540' : 'rgba(255,255,255,0.8)',
-                        }}
-                      >
-                        {active && (
-                          <span
-                            className="absolute top-1 right-1 w-4 h-4 rounded-full flex items-center justify-center"
-                            style={{ backgroundColor: '#FFD540' }}
-                          >
-                            <IconCheck size={10} color="#0C0C0D" stroke={3} />
-                          </span>
-                        )}
-                        {tool}
-                      </button>
-                    )
-                  })}
-                </div>
-              </div>
-            </>
-          )}
         </div>
       </div>
 
-      {/* Error */}
       {error && (
         <p className="text-sm mt-3" style={{ color: '#FF4040', fontFamily: "'Work Sans', sans-serif" }}>
           {error}
         </p>
       )}
 
-      {/* Privacy */}
       <p
         className="text-[11px] mt-4 leading-relaxed"
         style={{ color: 'rgba(255,255,255,0.28)', fontFamily: "'Work Sans', sans-serif" }}
@@ -516,7 +489,6 @@ export function ContactForm() {
         .
       </p>
 
-      {/* Navigation */}
       <div
         className={`relative z-0 flex gap-3 mt-5 ${step === 1 ? '' : 'flex-row'}`}
       >
