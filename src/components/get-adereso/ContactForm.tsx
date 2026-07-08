@@ -178,6 +178,11 @@ export function ContactForm() {
     )
   }, [form])
 
+  const emailLooksComplete = isValidEmailFormat(form.correo)
+  const emailIsCorporate = isCorporateEmail(form.correo)
+  const showCorporateEmailError =
+    form.correo.trim().length > 0 && emailLooksComplete && !emailIsCorporate
+
   const canAdvance = useCallback(() => {
     if (step === 1) {
       return (
@@ -362,21 +367,28 @@ export function ContactForm() {
                   autoComplete="email"
                   placeholder="Ej: maria@empresa.com"
                   className={INPUT_BASE}
-                  style={INPUT_STYLE}
+                  style={{
+                    ...INPUT_STYLE,
+                    borderColor: showCorporateEmailError
+                      ? 'rgba(255,64,64,0.55)'
+                      : INPUT_STYLE.border,
+                  }}
                   value={form.correo}
                   onChange={(e) => setForm((f) => ({ ...f, correo: e.target.value }))}
+                  aria-invalid={showCorporateEmailError}
+                  aria-describedby={showCorporateEmailError ? 'correo-error' : undefined}
                   {...inputFocusHandlers}
                 />
-                {form.correo.trim() &&
-                  isValidEmailFormat(form.correo) &&
-                  !isCorporateEmail(form.correo) && (
-                    <p
-                      className="text-xs mt-1.5"
-                      style={{ color: '#FF4040', fontFamily: "'Work Sans', sans-serif" }}
-                    >
-                      {CORPORATE_EMAIL_ERROR_MESSAGE}
-                    </p>
-                  )}
+                {showCorporateEmailError && (
+                  <p
+                    id="correo-error"
+                    role="alert"
+                    className="text-xs mt-1.5"
+                    style={{ color: '#FF4040', fontFamily: "'Work Sans', sans-serif" }}
+                  >
+                    {CORPORATE_EMAIL_ERROR_MESSAGE}
+                  </p>
+                )}
               </div>
               <div>
                 <label className={`block text-sm text-white/80 mb-1.5 ${font}`}>
