@@ -245,7 +245,7 @@ export function ContactForm() {
       ;(window as Window & { dataLayer?: Record<string, unknown>[] }).dataLayer =
         (window as Window & { dataLayer?: Record<string, unknown>[] }).dataLayer || []
       ;(window as Window & { dataLayer?: Record<string, unknown>[] }).dataLayer!.push({
-        event: 'hubspotFormSubmitted',
+        event: 'hubspot_form_submit',
         formSource: 'lp-adereso',
         userEmail: form.correo,
         userPhone: form.telefono,
